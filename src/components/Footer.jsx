@@ -1,6 +1,7 @@
 import React from 'react';
+import { WEB_APP_URL } from '../config';
 
-export default function Footer({ onOpenLoginModal }) {
+export default function Footer() {
   return (
     <footer className="border-t border-neutral-200 py-12 bg-white text-xs text-neutral-500">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -24,12 +25,12 @@ export default function Footer({ onOpenLoginModal }) {
             <a href="#comparativa" className="hover:text-neutral-900 transition-colors">Comparativa</a>
             <a href="#precios" className="hover:text-neutral-900 transition-colors">Precios</a>
             <a href="#faq" className="hover:text-neutral-900 transition-colors">Preguntas</a>
-            <button
-              onClick={onOpenLoginModal}
+            <a
+              href={WEB_APP_URL}
               className="text-neutral-900 font-semibold hover:underline underline-offset-4"
             >
               Iniciar sesión web
-            </button>
+            </a>
           </div>
 
         </div>

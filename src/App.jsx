@@ -10,18 +10,15 @@ import FAQ from './components/FAQ';
 import DownloadCTA from './components/DownloadCTA';
 import Footer from './components/Footer';
 import DownloadModal from './components/DownloadModal';
-import LoginModal from './components/LoginModal';
 
 export default function App() {
   const [downloadModalOpen, setDownloadModalOpen] = useState(false);
-  const [loginModalOpen, setLoginModalOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#fafafa] text-neutral-900 flex flex-col font-sans selection:bg-neutral-900 selection:text-white">
-      {/* Top Navbar */}
+      {/* Top Navbar with direct Web App Link */}
       <Navbar 
         onOpenDownloadModal={() => setDownloadModalOpen(true)} 
-        onOpenLoginModal={() => setLoginModalOpen(true)}
       />
 
       {/* Main Sections */}
@@ -45,20 +42,12 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer 
-        onOpenLoginModal={() => setLoginModalOpen(true)} 
-      />
+      <Footer />
 
       {/* Minimal Download Modal */}
       <DownloadModal 
         isOpen={downloadModalOpen} 
         onClose={() => setDownloadModalOpen(false)} 
-      />
-
-      {/* Web Login Modal */}
-      <LoginModal 
-        isOpen={loginModalOpen} 
-        onClose={() => setLoginModalOpen(false)} 
       />
     </div>
   );

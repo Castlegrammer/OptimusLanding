@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { WEB_APP_URL } from '../config';
 
-export default function Navbar({ onOpenDownloadModal, onOpenLoginModal }) {
+export default function Navbar({ onOpenDownloadModal }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
@@ -41,12 +42,12 @@ export default function Navbar({ onOpenDownloadModal, onOpenLoginModal }) {
 
         {/* Action Buttons */}
         <div className="hidden md:flex items-center gap-3">
-          <button
-            onClick={onOpenLoginModal}
+          <a
+            href={WEB_APP_URL}
             className="text-xs font-semibold px-3.5 py-2 text-neutral-700 hover:text-neutral-950 transition-colors"
           >
             Iniciar sesión
-          </button>
+          </a>
           
           <button
             onClick={onOpenDownloadModal}
@@ -59,12 +60,12 @@ export default function Navbar({ onOpenDownloadModal, onOpenLoginModal }) {
 
         {/* Mobile Actions */}
         <div className="flex md:hidden items-center gap-2">
-          <button
-            onClick={onOpenLoginModal}
+          <a
+            href={WEB_APP_URL}
             className="text-xs font-medium px-2.5 py-1.5 text-neutral-700 hover:text-neutral-950"
           >
             Ingresar
-          </button>
+          </a>
 
           <button
             onClick={onOpenDownloadModal}
@@ -75,7 +76,7 @@ export default function Navbar({ onOpenDownloadModal, onOpenLoginModal }) {
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-1.5 text-neutral-600 hover:text-neutral-900"
+            className="p-1.5 text-neutral-600 hover:text-neutral-950"
             aria-label="Abrir menú"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -98,15 +99,12 @@ export default function Navbar({ onOpenDownloadModal, onOpenLoginModal }) {
           ))}
 
           <div className="pt-2 border-t border-neutral-100 mt-2">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenLoginModal();
-              }}
-              className="w-full text-left px-3 py-2 text-sm font-semibold text-neutral-900 hover:bg-neutral-100 rounded-lg"
+            <a
+              href={WEB_APP_URL}
+              className="block w-full text-left px-3 py-2 text-sm font-semibold text-neutral-900 hover:bg-neutral-100 rounded-lg"
             >
-              Iniciar sesión en la web
-            </button>
+              Iniciar sesión en la web &rarr;
+            </a>
           </div>
         </div>
       )}
