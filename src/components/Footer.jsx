@@ -3,31 +3,33 @@ import { WEB_APP_URL } from '../config';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-neutral-200 py-12 bg-white text-xs text-neutral-500">
+    <footer className="border-t border-slate-200 py-12 bg-white text-xs text-slate-500">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-md bg-neutral-900 text-white font-bold text-xs flex items-center justify-center">
+          <div className="flex items-center gap-2.5">
+            <div className="w-7 h-7 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-blue-500 text-white font-bold text-xs flex items-center justify-center shadow-xs">
               360
             </div>
-            <span className="font-semibold text-neutral-900 text-sm tracking-tight">
-              Optimus360
-            </span>
-            <span className="text-neutral-400 ml-2">
-              Gestión comercial para pequeños negocios
-            </span>
+            <div className="flex flex-col">
+              <span className="font-bold text-slate-900 text-sm tracking-tight leading-tight">
+                Optimus<span className="text-blue-600">360</span>
+              </span>
+              <span className="text-slate-400 text-[11px]">
+                Control comercial para emprendedores y bodegas
+              </span>
+            </div>
           </div>
 
           <div className="flex flex-wrap items-center gap-6">
-            <a href="#funcionalidades" className="hover:text-neutral-900 transition-colors">Funcionalidades</a>
-            <a href="#simulador" className="hover:text-neutral-900 transition-colors">Simulador</a>
-            <a href="#comparativa" className="hover:text-neutral-900 transition-colors">Comparativa</a>
-            <a href="#precios" className="hover:text-neutral-900 transition-colors">Precios</a>
-            <a href="#faq" className="hover:text-neutral-900 transition-colors">Preguntas</a>
+            <a href="#funcionalidades" className="hover:text-blue-600 transition-colors font-medium">Funcionalidades</a>
+            <a href="#simulador" className="hover:text-blue-600 transition-colors font-medium">Simulador</a>
+            <a href="#comparativa" className="hover:text-blue-600 transition-colors font-medium">Comparativa</a>
+            <a href="#precios" className="hover:text-blue-600 transition-colors font-medium">Precios</a>
+            <a href="#faq" className="hover:text-blue-600 transition-colors font-medium">Preguntas</a>
             <a
               href={WEB_APP_URL}
-              className="text-neutral-900 font-semibold hover:underline underline-offset-4"
+              className="text-blue-600 font-bold hover:underline underline-offset-4"
             >
               Iniciar sesión web
             </a>
@@ -35,16 +37,18 @@ export default function Footer() {
 
         </div>
 
-        <div className="mt-8 pt-8 border-t border-neutral-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-neutral-400">
+        <div className="mt-8 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-400">
           <div>
             © {new Date().getFullYear()} Optimus360. Todos los derechos reservados.
           </div>
           <div className="flex items-center gap-4">
-            <a href="#" className="hover:text-neutral-600 transition-colors">Privacidad</a>
+            <a href="#" className="hover:text-slate-600 transition-colors">Privacidad</a>
             <span>•</span>
-            <a href="#" className="hover:text-neutral-600 transition-colors">Términos de servicio</a>
+            <a href="#" className="hover:text-slate-600 transition-colors">Términos de servicio</a>
             <span>•</span>
-            <a href="https://wa.me/" target="_blank" rel="noreferrer" className="hover:text-neutral-600 transition-colors">Soporte WhatsApp</a>
+            <a href="https://wa.me/" target="_blank" rel="noreferrer" className="hover:text-emerald-600 transition-colors font-medium">
+              Soporte oficial por WhatsApp
+            </a>
           </div>
         </div>
       </div>

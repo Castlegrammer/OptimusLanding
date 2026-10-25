@@ -1,64 +1,72 @@
 import React, { useState } from 'react';
-import { Plus, Minus } from 'lucide-react';
+import { Plus, Minus, HelpCircle } from 'lucide-react';
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
 
   const questions = [
     {
-      q: '¿Cómo funciona exactamente si me quedo sin señal o internet?',
-      a: 'Optimus360 utiliza almacenamiento SQLite local y seguro en tu dispositivo. Puedes registrar ventas, cobrar, consultar stock e imprimir tickets sin conexión alguna. En cuanto tu teléfono se conecta a Wi-Fi o datos móviles, la app envía las novedades a la nube de manera transparente.',
+      q: '¿Cómo funciona si no hay internet o se va la luz en mi zona?',
+      a: 'Optimus360 guarda toda tu información en una base de datos local y segura en tu propio teléfono móvil (SQLite). Puedes seguir registrando ventas, cobrando en efectivo o Pago Móvil, registrando abonos de fiado e imprimiendo recibos con total normalidad. Cuando vuelva la conexión Wi-Fi o datos, los datos se sincronizan automáticamente.',
     },
     {
-      q: '¿Qué impresoras térmicas son compatibles?',
-      a: 'Cualquier impresora térmica estándar con conectividad Bluetooth o de red local, ya sea de formato 58mm o 80mm. Si no dispones de impresora, puedes compartir el comprobante en PDF por WhatsApp directamente al cliente.',
+      q: '¿Cómo me ayuda con el cálculo del vuelto y las tasas de cambio?',
+      a: 'La aplicación cuenta con una calculadora de cambio multitasas integrada. Puedes consultar en segundos la tasa oficial del BCV o USDT, ingresar con cuánto te paga el cliente (en dólares en efectivo, bolívares en efectivo o Pago Móvil) y la app te dirá con exactitud matemática cuánto vuelto debes dar, evitando pérdidas de dinero por confusiones de cálculo.',
     },
     {
-      q: '¿Puedo importar mis productos si los tengo actualmente en Excel?',
-      a: 'Sí. Dispones de un importador web muy simple en el que subes tu archivo CSV o Excel con columnas de nombre, precio, costo y código de barras. Tu inventario queda listo en minutos.',
+      q: '¿Cómo funciona la libreta de fiado con el registro de abonos?',
+      a: 'Cada vez que le fíes a un cliente recurrente, se anota en su ficha. Si el cliente viene días después y te abona una parte (por ejemplo $10 de una deuda de $25), el sistema resta automáticamente el abono, actualiza el saldo a $15 y te permite mandarle el comprobante actualizado directo a su WhatsApp con un solo toque.',
     },
     {
-      q: '¿Qué ocurre si cambio de teléfono móvil o lo extravío?',
-      a: 'Tu base de datos está respaldada en servidores seguros. Simplemente descargas la app en tu nuevo teléfono, inicias sesión con tu usuario y contraseña, y recuperas toda tu información intacta.',
+      q: '¿Necesito comprar una computadora cara o una impresora especial?',
+      a: 'No, todo funciona directamente en tu teléfono Android o iPhone. Si quieres imprimir comprobantes físicos en papel, puedes conectarle por Bluetooth cualquier mini impresora térmica estándar de 58mm o 80mm (las económicas que venden en cualquier tienda de tecnología). Y si no tienes impresora, envías el recibo digital por WhatsApp.',
     },
     {
-      q: '¿Puedo ocultar los costos de compra a mis empleados o cajeros?',
-      a: 'Sí. Puedes asignar roles limitados para que el personal en mostrador solo pueda cobrar y buscar productos, sin tener visibilidad sobre costos de proveedores, balances de caja globales o utilidades de la empresa.',
+      q: '¿Puedo dejar a un familiar o cajero atendiendo sin que vea mis ganancias?',
+      a: 'Totalmente. Puedes crear un perfil de "Cajero / Ayudante". Con ese perfil, ellos solo pueden buscar productos, cobrar y emitir tickets en mostrador, pero nunca tendrán acceso a ver tus costos de compra, márgenes de ganancia ni el total acumulado en caja.',
+    },
+    {
+      q: '¿Qué ocurre si cambio de teléfono o se me daña el celular?',
+      a: 'Toda tu información cuenta con respaldo cifrado en la nube. Tan pronto como descargues la app en tu nuevo dispositivo e inicies sesión con tu cuenta, tu inventario, tus ventas y tu libreta de fiado se restablecen de inmediato exactamente como los dejaste.',
     },
   ];
 
   return (
-    <section id="faq" className="py-20 border-b border-neutral-200/80 bg-neutral-50/50">
+    <section id="faq" className="py-20 border-b border-slate-200/80 bg-slate-50/60">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         
         {/* Header */}
         <div className="mb-12 text-left">
-          <div className="text-xs font-semibold text-neutral-500 uppercase tracking-wider mb-2">
-            Preguntas frecuentes
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-semibold uppercase tracking-wider mb-3">
+            <HelpCircle className="w-3.5 h-3.5" />
+            <span>Respuestas a tus dudas</span>
           </div>
-          <h2 className="text-3xl font-bold tracking-tight text-neutral-950">
-            Dudas comunes sobre la aplicación
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
+            Preguntas frecuentes sobre Optimus360
           </h2>
+          <p className="text-slate-600 text-sm mt-2">
+            Todo lo que necesitas saber antes de empezar a usarlo en tu mostrador.
+          </p>
         </div>
 
         {/* Minimal Accordion */}
-        <div className="divide-y divide-neutral-200 border-y border-neutral-200">
+        <div className="divide-y divide-slate-200 border-y border-slate-200 bg-white rounded-3xl p-4 sm:p-6 shadow-sm border border-slate-200/80">
           {questions.map((item, index) => {
             const isOpen = openIndex === index;
             return (
-              <div key={index} className="py-4">
+              <div key={index} className="py-4 first:pt-2 last:pb-2">
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full flex items-center justify-between text-left py-1 text-sm sm:text-base font-semibold text-neutral-950 focus:outline-none"
+                  className="w-full flex items-center justify-between text-left py-1 text-sm sm:text-base font-bold text-slate-800 hover:text-blue-600 focus:outline-none transition-colors"
                 >
                   <span className="pr-4">{item.q}</span>
-                  <span className="p-1 text-neutral-500 shrink-0">
+                  <span className={`p-1.5 rounded-xl shrink-0 transition-colors ${isOpen ? 'bg-blue-50 text-blue-600' : 'bg-slate-100 text-slate-500'}`}>
                     {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                   </span>
                 </button>
 
                 {isOpen && (
-                  <div className="mt-2 text-xs sm:text-sm text-neutral-600 leading-relaxed pr-8">
+                  <div className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed pr-8">
                     {item.a}
                   </div>
                 )}

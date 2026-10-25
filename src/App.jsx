@@ -10,12 +10,13 @@ import FAQ from './components/FAQ';
 import DownloadCTA from './components/DownloadCTA';
 import Footer from './components/Footer';
 import DownloadModal from './components/DownloadModal';
+import LiveNotificationToast from './components/LiveNotificationToast';
 
 export default function App() {
   const [downloadModalOpen, setDownloadModalOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#fafafa] text-neutral-900 flex flex-col font-sans selection:bg-neutral-900 selection:text-white">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-800 flex flex-col font-sans selection:bg-blue-600 selection:text-white relative">
       {/* Top Navbar with direct Web App Link */}
       <Navbar 
         onOpenDownloadModal={() => setDownloadModalOpen(true)} 
@@ -49,6 +50,9 @@ export default function App() {
         isOpen={downloadModalOpen} 
         onClose={() => setDownloadModalOpen(false)} 
       />
+
+      {/* Floating subtle live activity toast */}
+      <LiveNotificationToast />
     </div>
   );
 }

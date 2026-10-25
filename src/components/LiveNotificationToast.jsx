@@ -1,35 +1,35 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingBag, CheckCircle2, Star, X } from 'lucide-react';
+import { ShoppingBag, CheckCircle2, TrendingUp, WifiOff, X } from 'lucide-react';
 
 export default function LiveNotificationToast() {
   const notifications = [
     {
       icon: ShoppingBag,
       title: 'Venta registrada con éxito',
-      desc: 'Minimarket Los Pinos (Guadalajara) cobró $92.50',
+      desc: 'Bodega La Bendición cobró $24.50 (Efectivo + Pago Móvil)',
       time: 'Hace 1 min',
-      color: 'text-emerald-400',
+      iconBg: 'bg-emerald-50 text-emerald-600 border border-emerald-100',
     },
     {
       icon: CheckCircle2,
-      title: 'Cuenta saldada por WhatsApp',
-      desc: 'Ferretería El Roble (Bogotá) recuperó $140.00',
+      title: 'Abono registrado en Libreta de Fiado',
+      desc: 'Doña Carmen abonó $15.00 con comprobante WhatsApp',
       time: 'Hace 3 min',
-      color: 'text-brand-400',
+      iconBg: 'bg-amber-50 text-amber-600 border border-amber-100',
     },
     {
-      icon: Star,
-      title: 'Nueva reseña 5 estrellas',
-      desc: 'Valeria R. en App Store: "Me salvó los cuadres"',
+      icon: TrendingUp,
+      title: 'Tasas BCV sincronizadas',
+      desc: 'Calculadora de vuelto al día con tasa oficial',
       time: 'Hace 5 min',
-      color: 'text-amber-400',
+      iconBg: 'bg-blue-50 text-blue-600 border border-blue-100',
     },
     {
-      icon: ShoppingBag,
-      title: 'Modo Offline sincronizado',
-      desc: 'Distribuidora del Valle (Santiago) sincronizó 34 pedidos',
+      icon: WifiOff,
+      title: 'Ventas Offline sincronizadas',
+      desc: '18 tickets locales sincronizados sin perder conexión',
       time: 'Hace 8 min',
-      color: 'text-cyan-400',
+      iconBg: 'bg-indigo-50 text-indigo-600 border border-indigo-100',
     },
   ];
 
@@ -58,21 +58,21 @@ export default function LiveNotificationToast() {
 
   return (
     <div
-      className={`fixed bottom-4 left-4 z-40 max-w-xs sm:max-w-sm transition-all duration-500 transform ${
+      className={`fixed bottom-5 left-5 z-40 max-w-xs sm:max-w-sm transition-all duration-500 transform ${
         visible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
       }`}
     >
-      <div className="bg-slate-900/95 border border-slate-700/80 rounded-2xl p-3.5 shadow-2xl backdrop-blur-xl flex items-center justify-between gap-3 text-left">
+      <div className="bg-white/95 border border-slate-200/90 rounded-2xl p-3.5 shadow-xl shadow-slate-900/5 backdrop-blur-md flex items-center justify-between gap-3 text-left ring-1 ring-slate-100">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center shrink-0 border border-slate-700">
-            <Icon className={`w-4 h-4 ${current.color}`} />
+          <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${current.iconBg}`}>
+            <Icon className="w-4 h-4" />
           </div>
           <div>
-            <div className="text-xs font-bold text-white flex items-center gap-1.5">
+            <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
               <span>{current.title}</span>
               <span className="text-[10px] text-slate-400 font-normal">• {current.time}</span>
             </div>
-            <div className="text-[11px] text-slate-300 line-clamp-1">
+            <div className="text-[11px] text-slate-500 line-clamp-1">
               {current.desc}
             </div>
           </div>
@@ -80,7 +80,7 @@ export default function LiveNotificationToast() {
 
         <button
           onClick={() => setClosed(true)}
-          className="p-1 text-slate-500 hover:text-slate-300 rounded-lg shrink-0"
+          className="p-1 text-slate-400 hover:text-slate-600 rounded-lg shrink-0 transition-colors"
           aria-label="Cerrar notificación"
         >
           <X className="w-3.5 h-3.5" />
