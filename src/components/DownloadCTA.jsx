@@ -2,7 +2,7 @@ import React from 'react';
 import { ArrowRight, Smartphone, ShieldCheck, Sparkles, Laptop } from 'lucide-react';
 import { WEB_APP_URL } from '../config';
 
-export default function DownloadCTA({ onOpenDownloadModal }) {
+export default function DownloadCTA({ onOpenDownloadModal, onOpenLoginModal }) {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
@@ -44,13 +44,14 @@ export default function DownloadCTA({ onOpenDownloadModal }) {
               <ArrowRight className="w-4 h-4 text-blue-700" />
             </button>
 
-            <a
-              href={WEB_APP_URL}
-              className="px-5 py-3.5 rounded-xl bg-white/15 hover:bg-white/20 text-white font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 backdrop-blur-xs border border-white/20 hover:-translate-y-0.5"
+            <button
+              type="button"
+              onClick={onOpenLoginModal}
+              className="px-5 py-3.5 rounded-xl bg-white/15 hover:bg-white/20 text-white font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 backdrop-blur-xs border border-white/20 hover:-translate-y-0.5 cursor-pointer"
             >
               <Laptop className="w-4 h-4" />
               <span>Abrir versión Web</span>
-            </a>
+            </button>
           </div>
 
         </div>

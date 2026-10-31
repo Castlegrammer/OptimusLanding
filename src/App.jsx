@@ -42,11 +42,14 @@ export default function App() {
         <FAQ />
         <DownloadCTA 
           onOpenDownloadModal={() => setDownloadModalOpen(true)} 
+          onOpenLoginModal={() => setLoginModalOpen(true)}
         />
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer 
+        onOpenLoginModal={() => setLoginModalOpen(true)}
+      />
 
       {/* Minimal Download Modal */}
       <DownloadModal 
