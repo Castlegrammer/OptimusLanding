@@ -82,8 +82,8 @@ export default function DownloadModal({ isOpen, onClose }) {
           </a>
 
           <a
-            href="#apk"
-            onClick={(e) => { e.preventDefault(); alert("Descargando archivo APK Optimus360 v3.2.0 para Android..."); }}
+            href="./Optimus.apk"
+            download="Optimus360.apk"
             className="flex items-center justify-between p-3.5 border border-slate-200 hover:border-blue-400 rounded-2xl transition-all group bg-white hover:bg-blue-50/20 shadow-2xs"
           >
             <div className="flex items-center gap-3">
