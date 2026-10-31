@@ -47,13 +47,12 @@ export default function Navbar({ onOpenDownloadModal, onOpenLoginModal }) {
 
         {/* Action Buttons */}
         <div className="hidden md:flex items-center gap-3">
-          <button
-            type="button"
-            onClick={onOpenLoginModal}
+          <a
+            href={WEB_APP_URL}
             className="text-xs font-semibold px-3.5 py-2 text-slate-600 hover:text-blue-600 hover:bg-slate-100/70 rounded-xl transition-all cursor-pointer"
           >
             Iniciar sesión
-          </button>
+          </a>
           
           <button
             onClick={onOpenDownloadModal}
@@ -66,13 +65,12 @@ export default function Navbar({ onOpenDownloadModal, onOpenLoginModal }) {
 
         {/* Mobile Actions */}
         <div className="flex md:hidden items-center gap-2">
-          <button
-            type="button"
-            onClick={onOpenLoginModal}
+          <a
+            href={WEB_APP_URL}
             className="text-xs font-semibold px-2.5 py-1.5 text-slate-700 hover:text-blue-600 cursor-pointer"
           >
             Entrar
-          </button>
+          </a>
 
           <button
             onClick={onOpenDownloadModal}
@@ -105,13 +103,12 @@ export default function Navbar({ onOpenDownloadModal, onOpenLoginModal }) {
             </a>
           ))}
           <div className="pt-2 border-t border-slate-100 flex flex-col gap-2">
-            <button
-              type="button"
-              onClick={() => { setMobileMenuOpen(false); onOpenLoginModal(); }}
+            <a
+              href={WEB_APP_URL}
               className="w-full text-left text-xs font-semibold py-2 px-3 text-slate-700 hover:bg-slate-100 rounded-lg cursor-pointer"
             >
               Iniciar sesión
-            </button>
+            </a>
           </div>
         </div>
       )}
